@@ -904,10 +904,12 @@ struct pb_extension_s {
 
 extern "C++"
 {
+#if 0
 namespace nanopb {
 // Each type will be partially specialized by the generator.
 template <typename GenMessageT> struct MessageDescriptor;
 }  // namespace nanopb
+#endif
 }
 #endif  /* __cplusplus */
 
