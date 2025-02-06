@@ -1,3 +1,14 @@
+This add support to build your config with a docker container.
+The container builds any .proto file that is in the config directory.
+Overall this is under development and not optimal, but enough to start building.
+
+# How to use
+- Put the .proto files you want to compile in the config directory
+- Execute the build-docker.sh script
+- Now the pb.h/c files should be in the config directory
+  - The permissions are a little off so there can be a little tweaking
+
+
 Nanopb is a small code-size Protocol Buffers implementation in ansi C. It is
 especially suitable for use in microcontrollers, but fits any memory
 restricted system.
