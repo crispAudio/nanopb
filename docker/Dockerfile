@@ -1,6 +1,6 @@
 FROM fedora:32
 
-RUN dnf install -y python2 protobuf-compiler python-protobuf
+RUN dnf install -y python2 protobuf-compiler python-protobuf make
 # Link python command to python2
 RUN ln -s /usr/bin/python2 /usr/bin/python
 # Install pip2

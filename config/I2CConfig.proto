@@ -1,0 +1,32 @@
+// An I2C config to configure a device
+syntax = "proto2";
+
+import "nanopb.proto";
+
+message Write {
+  repeated uint32 data = 2 [ (nanopb).max_count = 5, (nanopb).int_size = IS_8 ];
+}
+
+message Gpio {
+  required uint32 pinMask = 1;
+  required uint32 actionMask = 2;
+}
+
+// Keep this in sync with the union of I2CAction
+enum I2CType {
+  I2CWrite = 0;
+  I2CGPIO = 1;
+}
+
+message I2CAction {
+  oneof action {
+    Write write = 1;
+    Gpio gpio = 2;
+  }
+}
+
+message I2CConfig {
+  required uint32 node = 1;
+  required uint32 i2cAddress = 2;
+  repeated I2CAction actions = 3 [ (nanopb).max_count = 20 ];
+}
